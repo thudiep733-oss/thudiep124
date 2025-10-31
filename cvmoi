@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>個人履歷表 - 葉秋玄</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            background-color: #f7f7f7;
+            font-family: 'Microsoft JhengHei', 'PingFang TC', Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px 0;
+            color: #333;
+        }
+        .resume-container {
+            width: 100%;
+            max-width: 650px; 
+            margin: 0 auto;
+            background-color: #ffffff; 
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.08); 
+        }
+        .contact-info-block {
+            padding: 25px 35px;
+            background-color: #f0fdfd; 
+            border-bottom: 2px solid #b2dfdb; 
+            display: flex;
+            align-items: center;
+        }
+        .avatar {
+            width: 90px; 
+            height: 90px;
+            border-radius: 50%; 
+            margin-right: 25px; 
+            border: 4px solid #80cbc4; 
+            background-color: #e0f2f1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #00796b;
+            font-size: 14px;
+            text-align: center;
+            padding: 5px;
+            overflow: hidden;
+        }
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .name-title h1 {
+            margin: 0;
+            font-size: 1.8em;
+            color: #00796b; 
+        }
+        .name-title p {
+            margin: 5px 0 0 0; 
+            font-size: 0.95em; 
+            color: #555;
+        }
+        .content-area {
+            width: 100%;
+            padding: 25px 35px; 
+            background-color: #ffffff; 
+        }
+        h2 {
+            font-size: 1.4em;
+            color: #00796b; 
+            border-bottom: 1px solid #e0f2f1;
+            font-weight: 600;
+            padding-bottom: 5px;
+            margin-top: 35px;
+            margin-bottom: 15px;
+        }
+        h2:first-child { margin-top: 0; }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin-top: 5px;
+        }
+        ul li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 15px;
+        }
+        ul li::before {
+            content: '★'; 
+            color: #00796b; 
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+            font-size: 0.8em;
+        }
+        .item-header {
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            color: #004d40; 
+        }
+        .date {
+            font-style: italic;
+            font-weight: normal;
+            color: #777;
+        }
+        .metric {
+            color: #d84315; 
+            font-weight: bold;
+        }
+        @media (max-width: 600px) {
+            .contact-info-block {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+            .avatar {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            .content-area { padding: 20px; }
+            .item-header { flex-direction: column; }
+            .date { margin-top: 5px; }
+        }
+        a {
+            color: #00796b;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        a:hover {
+            text-decoration: underline;
+            color: #004d40;
+        }
+        .github-link {
+            display: inline-flex;
+            align-items: center;
+            margin-top: 10px;
+            padding: 6px 12px;
+            background-color: #f0fdfd;
+            border-radius: 4px;
+            border: 1px solid #b2dfdb;
+            font-weight: bold;
+        }
+        .github-link:hover { background-color: #e0f2f1; }
+        .github-link::before {
+            content: '';
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%2300796b' d='M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z'/%3E%3C/svg%3E");
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        .footer {
+            text-align: center;
+            padding: 15px;
+            font-size: 0.8em;
+            color: #999;
+            border-top: 1px solid #e0f2f1;
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <div class="contact-info-block">
+            <div class="avatar">
+                <img src="IMG_0014.PNG" alt="Ảnh đại diện của Diệp Thu Huyền">
+            </div>
+            <div class="name-title">
+                <h1>葉 秋 玄 (Diệp Thu Huyền)</h1>
+                <p>亞洲大學 · 健康產業管理學系 一年級 | 學號: 114011108</p>
+                <a href="https://github.com/thuhuyendiep" target="_blank" class="github-link">
+                    GitHub Profile
+                </a>
+            </div>
+        </div>
+
+        <div class="content-area">
+            <section id="objective">
+                <h2>求職目標 (Mục tiêu Nghề nghiệp)</h2>
+                <p>
+                    <strong>短期目標:</strong> 積極尋求行政支援實習機會，承諾運用由烘焙經驗培養的<strong>嚴謹規範意識</strong>和<strong>編織訓練的細節關注度</strong>，高效協助辦公室管理和系統維護。 
+                    <br>
+                    <strong>長期抱負:</strong> 致力於發展個人組織與語言能力，最終目標是成為一名專業<strong>華語老師</strong>，並計畫在台灣<strong>開設連鎖越南餐廳</strong>，推廣亞洲美食文化交流。
+                </p>
+            </section>
+            
+            <section id="introduction">
+                <h2>個人簡介 (Tự giới thiệu)</h2>
+                <p>我是亞洲大學一年級新生 (學號 114011108)，對於華語教學抱持熱忱，並擁有在台灣拓展連鎖越南餐飲的企業家精神。我熱愛<strong>編織</strong>、<strong>探索美食</strong>及<strong>發掘新地點</strong>，這些興趣培養了我細心、耐心和適應多樣文化的能力。</p>
+            </section>
+
+            <section id="projects">
+                <h2>專案與實作 (Dự án & Thực hành)</h2>
+                <ul>
+                    <li><strong>流程創建與文件化:</strong> 獨立完成並記錄了超過 <span class="metric">25 項</span> 烹飪、插花與烘焙的標準化配方，展現出卓越的<strong>流程標準化</strong>和<strong>文檔記錄能力</strong>。</li>
+                    <li><strong>時間管理與文化學習:</strong> 積極參與校內<strong>茶道社團</strong>及<strong>插花課程</strong>，有效平衡學習與課外活動，並培養對中華傳統文化的鑑賞。</li>
+                    <li><strong>專注力實踐:</strong> 透過<strong>編織</strong>等需要長時間投入的活動，實踐高度專注和對細節的嚴格把控。</li>
+                </ul>
+            </section>
+
+            <section id="education">
+                <h2>教育背景</h2>
+                <div class="item-header">
+                    <span class="item-title">亞洲大學 (Asia University)</span>
+                    <span class="date">2024 年 – 至今 (學期中)</span>
+                </div>
+                <p>健康產業管理學系 · 大一新生</p>
+            </section>
+
+            <section id="experience">
+                <h2>工作經驗</h2>
+                <div>
+                    <div class="item-header">
+                        <span class="item-title">麵包店助理 (兼職人員)</span>
+                        <span class="date">2023 年 06 月 – 2024 年 06 月 (1 年)</span>
+                    </div>
+                    <p>某烘焙坊</p>
+                    <ul>
+                        <li><strong>效率提升:</strong> 建議並實施原料整理優化方案，將每日工作區準備時間成功<strong>縮短 15%</strong>。</li>
+                        <li><strong>規範執行:</strong> 嚴格遵循食品安全和衛生SOP，在 <span class="metric">12 個月</span> 的任職期間內，實現了零衛生違規事件。</li>
+                        <li><strong>客戶服務:</strong> 在高峰期成功服務平均 <span class="metric">30-40 位顧客/班次</span>，提升了高壓環境下的溝通與問題解決能力。</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="skills">
+                <h2>主要技能</h2>
+                <ul>
+                    <li><strong>語言能力:</strong> 漢語 B1 級, 基礎英語能力。</li>
+                    <li><strong>電腦技能:</strong> 熟練使用 Microsoft Office (Word, Excel, PowerPoint)，具備基礎數據管理能力。</li>
+                    <li><strong>核心特質:</strong> 具備專業道德、高度責任感，以及透過個人興趣（編織、烘焙）實踐的<strong>耐心與細心</strong>。</li>
+                </ul>
+            </section>
+            
+            <section id="contact-details">
+                <h2>聯絡資訊</h2>
+                <p>電子郵件 (Email): <strong>thudiep733@gmail.com</strong></p>
+                <p>居住地: 台中市 (Taichung City, Taiwan)</p>
+                <p>GitHub: <a href="https://github.com/thuhuyendiep" target="_blank">https://github.com/thuhuyendiep</a></p>
+            </section>
+        </div>
+
+        <div class="footer">
+            文件編碼: 葉秋玄 - 履歷 (2025/10)
+        </div>
+    </div>
+</body>
+</html>
